@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create New User</title>
+</head>
+<body>
+<h1>Create New User</h1>
+
+<form th:action="@{/admin/edit}" th:object="${user}" method="post">
+    <label for="username">Username:</label>
+    <input type="text" id="username" th:field="*{username}" required /><br>
+
+    <label for="name">Name:</label>
+    <input type="text" id="name" th:field="*{name}" required /><br>
+
+    <label for="surname">Surname:</label>
+    <input type="text" id="surname" th:field="*{surname}" required /><br>
+
+    <label for="age">Age:</label>
+    <input type="text" id="age" th:field="*{age}" required /><br>
+
+    <label for="password">Password:</label>
+    <input type="password" id="password" th:field="*{password}" required /><br>
+
+    <label for="roles">Roles:</label>
+    <select id="roles" th:field="*{roles}" multiple>
+        <option th:each="role : ${roles}" th:value="${role.id}" th:text="${role.name}"></option>
+    </select><br>
+
+
+    <button type="submit">Create User</button>
+</form>
+
+<a href="/admin">Back to Admin Page</a>
+<br><br>
+<a href="/logout">Logout</a>
+</body>
+</html>

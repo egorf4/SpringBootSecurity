@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Page</title>
+</head>
+<body>
+<h1>Welcome, <span th:text="${user.username}">User</span></h1>
+<p>Name: <span th:text="${user.name}">Name</span></p>
+<p>Surname: <span th:text="${user.surname}">Surname</span></p>
+<p>Age: <span th:text="${user.age}">Age</span></p>
+<p>Your roles:</p>
+<ul>
+    <li th:each="role : ${user.roles}" th:text="${role.name}">Role</li>
+</ul>
+<a href="/logout">Logout</a>
+</body>
+</html>
